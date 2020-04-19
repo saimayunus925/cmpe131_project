@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1> Welcome To T1 Calender </h1>
+    <p>           </p>
+    <p> <a href= "/login">Login</a>  or  <a href= "/createAccount">Create Account</a></p>
+ 
+    <p> Blabla {{indexUsr}} </p>
+    {%for i in indexLst%}
+        <p> {{i}} </p>
+    {% endfor %}
+    <p>  </p>
+
+{% endblock %}
