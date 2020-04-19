@@ -1,25 +1,9 @@
+from app_folder import myFlaskObj
 from flask import render_template
 from flask import redirect
 from flask import flash
 from app_folder import app
-from .forms import LoginForm
-
-# different URL the app will implement
-@app.route("/")
-# called view function
-def hello():
-    user_dictionary = {'username': 'Miguel'}
-    posts_list = [
-        {
-            'author': {'username': 'John'},
-            'body': 'Beautiful day in Portland!'
-        },
-        {
-            'author': {'username': 'Susan'},
-            'body': 'The Avengers movie was so cool!'
-        }
-    ]
-    return render_template('index.html', title='Home', user=user_dictionary, posts=posts_list)
+from app_folder.forms import LoginForm
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
