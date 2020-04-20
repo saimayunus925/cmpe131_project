@@ -38,6 +38,23 @@ def login():
         return redirect('/')
     return render_template('login.html', title='Sign In', form=current_form)
 
+
+
+@flaskObj.route("/create-account", methods=['GET', 'POST'])
+
+def createaccount():
+    '''
+    Create account page
+    Isaac 04/19: establishment of page excluding database implementation
+
+    '''
+    form = Registerform()
+    if form.validate_on_submit():
+        flash('You have created an account!')
+    return render_template('create-account.html', form=form)
+
+
+
 @app.route('/logout')
 def logout():
     '''
