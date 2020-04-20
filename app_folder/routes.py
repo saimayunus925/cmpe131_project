@@ -5,6 +5,7 @@ from flask import session
 from flask import url_for
 from app_folder import app
 from .forms import LoginForm
+from .forms import Registerform
 
 # different URL the app will implement
 @app.route("/")
@@ -40,7 +41,7 @@ def login():
 
 
 
-@flaskObj.route("/create-account", methods=['GET', 'POST'])
+@app.route("/create-account", methods=['GET', 'POST'])
 
 def createaccount():
     '''
