@@ -1,3 +1,4 @@
+from app_folder import myFlaskObj
 from flask import render_template
 from flask import redirect
 from flask import flash
@@ -24,14 +25,20 @@ def index():
     ]
     return render_template('index.html', title='Home', user=user_dictionary, posts=posts_list)
 
+
 @app.route('/login', methods=['GET', 'POST'])
-
 def login():
-    '''
-    Login page of the app.
+    """ Create address for Login page
+    
+    Returns to: 
+        login.html.
+        forms.py for LoginForm class.
+        Sign In
+    
+    4/19 Ali
     Dylan 4/19: Added session username
-
-    '''
+    
+    """
     current_form = LoginForm()
     if current_form.validate_on_submit():
         session['username'] = current_form.username
@@ -42,7 +49,6 @@ def login():
 
 
 @app.route("/create-account", methods=['GET', 'POST'])
-
 def createaccount():
     '''
     Create account page
@@ -59,7 +65,7 @@ def createaccount():
 @app.route('/logout')
 def logout():
     '''
-    Session logout
+    Pops the session username
     Dylan 4/19: Created initial implementation
 
     '''
