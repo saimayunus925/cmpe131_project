@@ -1,0 +1,221 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Functions &#8212; Team 1  documentation</title>
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/language_data.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="How to run" href="installation.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <div class="section" id="module-app_folder.routes">
+<span id="functions"></span><h1>Functions<a class="headerlink" href="#module-app_folder.routes" title="Permalink to this headline">¶</a></h1>
+<dl class="py function">
+<dt id="app_folder.routes.createaccount">
+<code class="sig-prename descclassname">app_folder.routes.</code><code class="sig-name descname">createaccount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.routes.createaccount" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create account page</p>
+<dl class="simple">
+<dt>Changelog:</dt><dd><p>Isaac 04/19: establishment of page excluding database implementation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app_folder.routes.index">
+<code class="sig-prename descclassname">app_folder.routes.</code><code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.routes.index" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the rendered ‘index.html’ template.</p>
+<dl class="simple">
+<dt>Parameters: </dt><dd><p>none</p>
+</dd>
+<dt>Returns: </dt><dd><p>render_template(‘index.html’): the rendered version of the index HTML page, which has the website title,
+a link to the login page, and a link to the create-account page</p>
+</dd>
+<dt>Changelog:</dt><dd><p>Saima 4/19: created homepage in index.html</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app_folder.routes.login">
+<code class="sig-prename descclassname">app_folder.routes.</code><code class="sig-name descname">login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.routes.login" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create address for Login page</p>
+<dl>
+<dt>Returns to: </dt><dd><p>login.html.
+forms.py for LoginForm class.
+Sign In</p>
+</dd>
+<dt>Changelog:</dt><dd><p>4/19 Ali</p>
+<p>Dylan 4/19: Added session username, changed flash message</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app_folder.routes.logout">
+<code class="sig-prename descclassname">app_folder.routes.</code><code class="sig-name descname">logout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.routes.logout" title="Permalink to this definition">¶</a></dt>
+<dd><p>Pops the session username</p>
+<dl class="simple">
+<dt>Changelog:</dt><dd><p>Dylan 4/19: Created initial implementation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<span class="target" id="module-app_folder.forms"></span><dl class="py class">
+<dt id="app_folder.forms.LoginForm">
+<em class="property">class </em><code class="sig-prename descclassname">app_folder.forms.</code><code class="sig-name descname">LoginForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.forms.LoginForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create form for Login page
+Allow to set reference names for triggers and check validaties for inputs.
+Summary for things we need for inside Login page</p>
+<dl class="simple">
+<dt>Parameters:</dt><dd><p>FlaskForm: make sure reference names are matching</p>
+</dd>
+<dt>Changelog:</dt><dd><p>4/19 Ali</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="app_folder.forms.LoginForm.password">
+<code class="sig-name descname">password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Password',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app_folder.forms.LoginForm.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.forms.LoginForm.remember_me">
+<code class="sig-name descname">remember_me</code><em class="property"> = &lt;UnboundField(BooleanField, ('Remember Me',), {})&gt;</em><a class="headerlink" href="#app_folder.forms.LoginForm.remember_me" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.forms.LoginForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Sign In',), {})&gt;</em><a class="headerlink" href="#app_folder.forms.LoginForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.forms.LoginForm.username">
+<code class="sig-name descname">username</code><em class="property"> = &lt;UnboundField(StringField, ('Username',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app_folder.forms.LoginForm.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="app_folder.forms.RegisterForm">
+<em class="property">class </em><code class="sig-prename descclassname">app_folder.forms.</code><code class="sig-name descname">RegisterForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.forms.RegisterForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creating create account fields</p>
+<dl class="simple">
+<dt>Changelog:</dt><dd><p>Isaac 4/19: Creates text fields and a submit button on create-account page</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="app_folder.forms.RegisterForm.email">
+<code class="sig-name descname">email</code><em class="property"> = &lt;UnboundField(StringField, ('Email',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app_folder.forms.RegisterForm.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.forms.RegisterForm.password">
+<code class="sig-name descname">password</code><em class="property"> = &lt;UnboundField(PasswordField, ('Set Password',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app_folder.forms.RegisterForm.password" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.forms.RegisterForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Create Account',), {})&gt;</em><a class="headerlink" href="#app_folder.forms.RegisterForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.forms.RegisterForm.username">
+<code class="sig-name descname">username</code><em class="property"> = &lt;UnboundField(StringField, ('Set Username',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app_folder.forms.RegisterForm.username" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">Team 1</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installation.html">How to run</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Functions</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="installation.html" title="previous chapter">How to run</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" />
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2020, Ali, Saima, Isaac, Dylan.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 3.0.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.12</a>
+      
+      |
+      <a href="_sources/functions.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

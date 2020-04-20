@@ -1,5 +1,5 @@
-from app import myFlaskObj
-myFlaskObj.run()
+from app_folder import app
+app.run()
 
 """
 Run the app.

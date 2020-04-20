@@ -1,4 +1,3 @@
-from app_folder import myFlaskObj
 from flask import render_template
 from flask import redirect
 from flask import flash
@@ -6,15 +5,14 @@ from flask import session
 from flask import url_for
 from app_folder import app
 from .forms import LoginForm
-from .forms import Registerform
+from .forms import RegisterForm
 
 # different URL the app will implement
 @app.route("/")
 # called view function
 def index():
     """
-    Returns the rendered 'index.html' template. 
-    Saima 4/19: created homepage in index.html
+    Returns the rendered 'index.html' template.
 
     Parameters: 
         none
@@ -22,27 +20,33 @@ def index():
     Returns: 
         render_template('index.html'): the rendered version of the index HTML page, which has the website title,
         a link to the login page, and a link to the create-account page
+
+    Changelog:
+        Saima 4/19: created homepage in index.html
     """
     return render_template('index.html') 
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    """ Create address for Login page
+    """
+    Create address for Login page
     
     Returns to: 
         login.html.
         forms.py for LoginForm class.
         Sign In
     
-    4/19 Ali
-    Dylan 4/19: Added session username
+    Changelog:
+        4/19 Ali
+        
+        Dylan 4/19: Added session username, changed flash message
     
     """
     current_form = LoginForm()
     if current_form.validate_on_submit():
         session['username'] = current_form.username
-        flash(f'Login requested for user {current_form.username.data}')
+        flash(f'Hello {current_form.username.data}!')
         return redirect('/')
     return render_template('login.html', title='Sign In', form=current_form)
 
@@ -52,12 +56,15 @@ def login():
 def createaccount():
     '''
     Create account page
-    Isaac 04/19: establishment of page excluding database implementation
+
+    Changelog:
+        Isaac 04/19: establishment of page excluding database implementation
 
     '''
-    form = Registerform()
+    form = RegisterForm()
     if form.validate_on_submit():
         flash('You have created an account!')
+        return redirect('/')
     return render_template('create-account.html', form=form)
 
 
@@ -66,8 +73,11 @@ def createaccount():
 def logout():
     '''
     Pops the session username
-    Dylan 4/19: Created initial implementation
+
+    Changelog:
+        Dylan 4/19: Created initial implementation
 
     '''
     session.pop('username', None)
+    flash('You have been logged out.')
     return redirect(url_for('index'))

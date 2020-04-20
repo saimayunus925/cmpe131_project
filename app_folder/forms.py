@@ -10,7 +10,8 @@ class LoginForm(FlaskForm):
     Parameters:
         FlaskForm: make sure reference names are matching
     
-    4/19 Ali
+    Changelog:
+        4/19 Ali
     
     """
  
@@ -22,9 +23,11 @@ class LoginForm(FlaskForm):
 class RegisterForm(FlaskForm):
     '''
     Creating create account fields
-    Isaac 4/19: Creates text fields and a submit button on create-account page
+
+    Changelog:
+        Isaac 4/19: Creates text fields and a submit button on create-account page
     '''
-	email = StringField('Email', validators=[DataRequired()])
-	username = StringField('Set Username', validators=[DataRequired()])
-	password = PasswordField('Set Password', validators=[DataRequired()])
-	submit = SubmitField('Create Account')
+    email = StringField('Email', validators=[DataRequired()])
+    username = StringField('Set Username', validators=[DataRequired()])
+    password = PasswordField('Set Password', validators=[DataRequired()])
+    submit = SubmitField('Create Account')
