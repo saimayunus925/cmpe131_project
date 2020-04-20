@@ -7,6 +7,17 @@ from app_folder.forms import LoginForm
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
+    """ Create address for Login page
+    
+    Returns: to login.html.
+    Returns: to forms.py for LoginForm class.
+    
+    4/19 Ali
+    
+    """
+    
+    
+    
     current_form = LoginForm()
     if current_form.validate_on_submit():
         flash(f'Login requested for user {current_form.username.data}')
