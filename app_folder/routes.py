@@ -9,8 +9,10 @@ from app_folder.forms import LoginForm
 def login():
     """ Create address for Login page
     
-    Returns: to login.html.
-    Returns: to forms.py for LoginForm class.
+    Returns to: 
+        login.html.
+        forms.py for LoginForm class.
+        Sign In
     
     4/19 Ali
     
