@@ -11,6 +11,17 @@ from .forms import Registerform
 @app.route("/")
 # called view function
 def index():
+    """
+    Returns the rendered 'index.html' template. 
+    Saima 4/19: created homepage in index.html
+
+    Parameters: 
+        none
+
+    Returns: 
+        render_template('index.html'): the rendered version of the index HTML page, which has the website title,
+        a link to the login page, and a link to the create-account page
+    """
     return render_template('index.html') 
 
 @app.route('/login', methods=['GET', 'POST'])
