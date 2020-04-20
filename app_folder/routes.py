@@ -10,18 +10,7 @@ from .forms import LoginForm
 @app.route("/")
 # called view function
 def index():
-    user_dictionary = {'username': 'Miguel'}
-    posts_list = [
-        {
-            'author': {'username': 'John'},
-            'body': 'Beautiful day in Portland!'
-        },
-        {
-            'author': {'username': 'Susan'},
-            'body': 'The Avengers movie was so cool!'
-        }
-    ]
-    return render_template('index.html', title='Home', user=user_dictionary, posts=posts_list)
+    return render_template('index.html') 
 
 @app.route('/login', methods=['GET', 'POST'])
 
