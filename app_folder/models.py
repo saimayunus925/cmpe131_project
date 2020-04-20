@@ -10,6 +10,14 @@ class User(db.Model):
     posts = db.relationship('Post', backref='author', lazy='dynamic')
 
     def __repr__(self):
+        """ Build in function to modify
+    
+        Returns:
+        print variable in string
+        4/19 Ali
+
+        """
+        
         return '<User {}>'.format(self.username)
 
 class Post(db.Model):
@@ -19,4 +27,12 @@ class Post(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
  
     def __repr__(self):
+        
+        """ Build in function to modify
+    
+        Returns:
+        print variable in string
+        4/19 Ali
+
+        """
         return '<Posts {}>'.format(self.body)
