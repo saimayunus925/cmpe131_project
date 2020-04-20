@@ -5,6 +5,7 @@ from flask import session
 from flask import url_for
 from app_folder import app
 from .forms import LoginForm
+from .forms import Registerform
 
 # different URL the app will implement
 @app.route("/")
@@ -37,6 +38,23 @@ def login():
         flash(f'Login requested for user {current_form.username.data}')
         return redirect('/')
     return render_template('login.html', title='Sign In', form=current_form)
+
+
+
+@app.route("/create-account", methods=['GET', 'POST'])
+
+def createaccount():
+    '''
+    Create account page
+    Isaac 04/19: establishment of page excluding database implementation
+
+    '''
+    form = Registerform()
+    if form.validate_on_submit():
+        flash('You have created an account!')
+    return render_template('create-account.html', form=form)
+
+
 
 @app.route('/logout')
 def logout():
