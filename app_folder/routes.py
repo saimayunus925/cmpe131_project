@@ -81,3 +81,12 @@ def logout():
     session.pop('username', None)
     flash('You have been logged out.')
     return redirect(url_for('index'))
+
+
+@app.route('/carlos')
+def guestPage():
+    return render_template('calendar.html')
+
+@app.route('/availableTimes')
+def availableTimes():
+    return render_template('availableTimes.html')
