@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
       <link rel="stylesheet" type="text/css" href="base_styles.css"> 
-       {% if title %}
+       {% if title %} 
        <title>Tasksent</title>
        {% else %}
        <title>Tasksent. The better scheduler.</title>
@@ -13,12 +14,22 @@
       <! –– first, before any CSS, let us list the links needed ––>
       <! –– login, logout, meetings, settings ––>
       <! –– for now, the bar will be light blue with black  ––>
-      <div>
-         <a class="navigate" href="/login">Login</a>
-         <a class="navigate" href="/logout">Logout</a>
-         <a class="navigate" href="/meetings">Meetings</a>
-         <a class="navigate"  href="/settings">Settings</a> 
-         <a class="navigate"  href="/guest-page">Guest Page</a> 
+      <div class="navigate">
+         <button type="button" class="btn btn-link">
+            <a href="/login">Login</a>
+         </button>
+         <button type="button" class="btn btn-link">
+            <a href="/logout">Logout</a>
+         </button>
+         <button type="button" class="btn btn-link">
+            <a href="/meetings">Meetings</a>
+         </button>
+         <button type="button" class="btn btn-link">
+            <a href="/settings">Settings</a> 
+         </button>
+         <button type="button" class="btn btn-link"> 
+            <a href="/guest-page">Guest Page</a> 
+         </button> 
       </div> 
 
        <hr>

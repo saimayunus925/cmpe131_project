@@ -1,6 +1,9 @@
 .navigate {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 20px;
     background-color: #afcfe3;
+} 
+
+a {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 18px;
     color: black;
 } 
