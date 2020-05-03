@@ -83,7 +83,7 @@ def logout():
     return redirect(url_for('index'))
 
 
-@app.route('/carlos')
+@app.route('/calendar')
 def guestPage():
     return render_template('calendar.html')
 
