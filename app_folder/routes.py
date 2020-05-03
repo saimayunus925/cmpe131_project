@@ -81,3 +81,13 @@ def logout():
     session.pop('username', None)
     flash('You have been logged out.')
     return redirect(url_for('index'))
+
+@app.route('/meetings')
+def accountHomePage():
+    '''
+
+
+    Changelog:
+        Dylan 5/3: Created initial implementation
+    '''
+    return render_template('meeting-page.html')
