@@ -6,6 +6,9 @@ from flask import url_for
 from app_folder import app
 from .forms import LoginForm
 from .forms import RegisterForm
+from app_folder.models import User, Event
+from app_folder.__init__ import db
+import datetime
 
 # different URL the app will implement
 @app.route("/")
@@ -41,11 +44,13 @@ def login():
         4/19 Ali
         
         Dylan 4/19: Added session username, changed flash message
+
+        Dylan 5/3: session['username'] receiving different data to fix a bug
     
     """
     current_form = LoginForm()
     if current_form.validate_on_submit():
-        session['username'] = current_form.username
+        session['username'] = current_form.username.data
         flash(f'Hello {current_form.username.data}!')
         return redirect('/')
     return render_template('login.html', title='Sign In', form=current_form)
@@ -60,11 +65,16 @@ def createaccount():
     Changelog:
         Isaac 04/19: establishment of page excluding database implementation
 
+        Dylan 5/3: Adds user to database
+
     '''
     form = RegisterForm()
     if form.validate_on_submit():
+        u = User(username=form.username.data, email=form.email.data, password_hash = form.password.data)
+        db.session.add(u)
+        db.session.commit()
         flash('You have created an account!')
-        return redirect('/')
+        return redirect('/meetings')
     return render_template('create-account.html', form=form)
 
 
@@ -85,9 +95,11 @@ def logout():
 @app.route('/meetings')
 def accountHomePage():
     '''
-
+        Displays all meeting date, time, guest, and description
 
     Changelog:
         Dylan 5/3: Created initial implementation
     '''
-    return render_template('meeting-page.html')
+    u = User.query.filter_by(username=session['username']).first()
+    e = Event.query.filter_by(creator=u).all()
+    return render_template('meetings-page.html', events = e)
