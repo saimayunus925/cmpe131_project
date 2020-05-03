@@ -91,3 +91,11 @@ def accountHomePage():
         Dylan 5/3: Created initial implementation
     '''
     return render_template('meeting-page.html')
+
+@app.route('/calendar')
+def guestPage():
+    return render_template('calendar.html')
+
+@app.route('/availableTimes')
+def availableTimes():
+    return render_template('availableTimes.html')
