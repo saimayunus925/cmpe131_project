@@ -6,6 +6,7 @@ from flask import url_for
 from app_folder import app
 from .forms import LoginForm
 from .forms import RegisterForm
+from .forms import SettingsForm
 
 # different URL the app will implement
 @app.route("/")
@@ -63,8 +64,8 @@ def createaccount():
     '''
     form = RegisterForm()
     if form.validate_on_submit():
-        flash('You have created an account!')
-        return redirect('/')
+        flash('You have created an account!')            
+        redirect('/login')
     return render_template('create-account.html', form=form)
 
 
@@ -81,3 +82,8 @@ def logout():
     session.pop('username', None)
     flash('You have been logged out.')
     return redirect(url_for('index'))
+
+@app.route('/settings', methods=['GET', 'POST'])
+def settings():
+    form = SettingsForm()
+    return render_template('settings.html', form=form)
