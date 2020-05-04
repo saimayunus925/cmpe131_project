@@ -18,7 +18,7 @@
 
       <div class="navigate">
 
-      {% if session['usename'] %}
+      {% if session['username'] %}
 
          <button type="button" class="btn btn-link">
             <a href="/meetings">Home</a>
@@ -34,10 +34,12 @@
 
       {% else %}
 
+         <!--
          <button type="button" class="btn btn-link"> 
             <a href="/guest-page">Schedule a Meeting</a> 
          </button> 
-
+         -->
+         
          <button type="button" class="btn btn-link">
             <a href="/login">Login</a>
          </button>
