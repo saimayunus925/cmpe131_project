@@ -2,7 +2,18 @@
 <html>
     <head>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <link rel="stylesheet" type="text/css" href="base_styles.css"> 
+      <style>
+        a:link {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 18px;
+            color: blue;
+        } 
+        a:hover {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 18px;
+            color: black;
+        } 
+      </style> 
        {% if title %} 
        <title>Tasksent</title>
        {% else %}
@@ -11,26 +22,26 @@
     </head>
     <body>
        <div class="navigate"> 
-          <button class="btn btn-link">
+          <button class="btn btn-light"> 
             <a href="/">Home</a> 
           </button>  
-          <button class="btn btn-link">
+          <button class="btn btn-light"> 
             <a href="/create-account">Create Account</a> 
           </button>
-          <button class="btn btn-link">
+          <button class="btn btn-light">
             {% if session['username'] %}
                <a href="/logout">Logout</a>
             {% else %}
-               <a href="login">Sign In</a>
+               <a href="login">Login</a> 
             {% endif %}
           </button> 
-          <button class="btn btn-link">
+          <button class="btn btn-light">
             <a href="/calendar">Guest Page</a>
           </button> 
-          <button class="btn btn-link">
+          <button class="btn btn-light">
             <a href="/meetings">Meetings</a> 
           </button> 
-     </div>
+     </div> 
        <hr> 
 
        {% block content %}{% endblock %}
