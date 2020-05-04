@@ -1,12 +1,14 @@
 from flask import render_template
 from flask import redirect
 from flask import flash
+from flask import request
 from flask import session
 from flask import url_for
 from app_folder import app
 from .forms import LoginForm
 from .forms import RegisterForm
 from .forms import SettingsForm
+from .forms import DeleteForm
 
 # different URL the app will implement
 @app.route("/")
@@ -64,6 +66,11 @@ def createaccount():
     '''
     form = RegisterForm()
     if form.validate_on_submit():
+        
+        user = [form.email, form.username, form.password]
+        db.session.add(user)
+        db.commit()
+
         flash('You have created an account!')            
         redirect('/login')
     return render_template('create-account.html', form=form)
@@ -86,4 +93,12 @@ def logout():
 @app.route('/settings', methods=['GET', 'POST'])
 def settings():
     form = SettingsForm()
+    if request.method == 'POST':
+        return redirect('/deleteaccount')
     return render_template('settings.html', form=form)
+
+
+@app.route('/deleteaccount', methods=['GET', 'POST'])
+def delete():
+    form = DeleteForm()
+    return render_template('delete-account.html', form=form)

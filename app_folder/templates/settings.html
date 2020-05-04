@@ -4,7 +4,7 @@
     <h1>Settings</h1>
     <h3>Meeting Settings</h3>
     
-    <form action="" method="post" navalidate>
+    <form action="" method="get" navalidate>
     {{ form.hidden_tag() }}
     
     <p>
@@ -16,17 +16,22 @@
         Select meeting length
         {{ form.timeops() }}
     </p>
-    
+
     <p>
         Would you like to notify attendants?
         <br>{{ form.emailconf() }} {{ form.emailconf.label }}</br>
     </p>
     
-    <br></br>
+    <p>
+        {{ form.confirm() }}
+    </p>
+    
+    </form>
+    <form action="" method="post" navalidate>
     
     <h3>Account Settings</h3>
     <p>
-        {{ form.submit() }}
+        {{ form.submit() }}<br>
     </p>
 
     </form>
