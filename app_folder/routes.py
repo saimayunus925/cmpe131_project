@@ -1,11 +1,14 @@
 from flask import render_template
 from flask import redirect
 from flask import flash
+from flask import request
 from flask import session
 from flask import url_for
 from app_folder import app
 from .forms import LoginForm
 from .forms import RegisterForm
+from .forms import SettingsForm
+from .forms import DeleteForm
 from app_folder.models import User, Event
 from app_folder.__init__ import db
 import datetime
@@ -93,6 +96,7 @@ def createaccount():
             return redirect(url_for('accountHomePage'))
     return render_template('create-account.html', form=form)
 
+
 @app.route('/logout')
 def logout():
     '''
@@ -105,6 +109,34 @@ def logout():
     session.pop('username', None)
     flash('You have been logged out.')
     return redirect(url_for('index'))
+
+
+@app.route('/settings', methods=['GET', 'POST'])
+def settings():
+    form = SettingsForm()
+    if request.method == 'POST':
+        return redirect('/deleteaccount')
+    return render_template('settings.html', form=form)
+
+
+@app.route('/deleteaccount', methods=['GET', 'POST'])
+def delete():
+    '''
+    Deletes user from database
+    
+    Changelog:
+        Dylan 5/3: Database functionality added
+    '''
+    form = DeleteForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=session['username']).first()
+        if form.username.data == user.username and form.password.data == user.password_hash:
+            session.pop('username', None)
+            db.session.delete(user)
+            db.session.commit()
+            flash("Account successfully deleted.")
+            return redirect(url_for('index'))
+    return render_template('delete-account.html', form=form)
 
 
 @app.route('/<username>')
