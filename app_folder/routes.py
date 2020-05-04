@@ -108,6 +108,30 @@ def logout():
     flash('You have been logged out.')
     return redirect(url_for('index'))
 
+
+@app.route('/<username>')
+def guestPage(username):
+    '''
+    Directs to a calendar that has information on the user's availability
+
+    Changelog:
+        Ali, Dylan 5/3: Initial implementation
+    '''
+    return render_template('calendar.html', days = 31, user = username)
+
+  
+@app.route('/<username>/availableTimes')
+def availableTimes(username):
+    '''
+    Redirect to display available times
+
+    Changelog:
+        Ali, Dylan 5/3: Initial implementation
+    '''
+    flash('Test times')
+    return redirect(f'/{username}')
+
+  
 @app.route('/meetings')
 def accountHomePage():
     '''
