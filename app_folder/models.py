@@ -1,4 +1,4 @@
-from app_folder import db
+from app_folder.__init__ import db
 from datetime import datetime
 
 

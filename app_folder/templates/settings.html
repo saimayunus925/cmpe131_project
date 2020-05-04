@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+ 
+{% block content %}
+    <h1>Settings</h1>
+    <h3>Meeting Settings</h3>
+    
+    <form action="" method="get" navalidate>
+    {{ form.hidden_tag() }}
+    
+    <p>
+        Change availability
+        {{ form.timeofday() }}
+    </p>
+
+    <p>
+        Select meeting length
+        {{ form.timeops() }}
+    </p>
+
+    <p>
+        Would you like to notify attendants?
+        <br>{{ form.emailconf() }} {{ form.emailconf.label }}</br>
+    </p>
+    
+    <p>
+        {{ form.confirm() }}
+    </p>
+    
+    </form>
+    <form action="" method="post" navalidate>
+    
+    <h3>Account Settings</h3>
+    <p>
+        {{ form.submit() }}<br>
+    </p>
+
+    </form>
+{% endblock %}
