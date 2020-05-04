@@ -6,6 +6,9 @@ from flask import url_for
 from app_folder import app
 from .forms import LoginForm
 from .forms import RegisterForm
+from app_folder.models import User, Event
+from app_folder.__init__ import db
+import datetime
 
 # different URL the app will implement
 @app.route("/")
@@ -14,42 +17,52 @@ def index():
     """
     Returns the rendered 'index.html' template.
 
-    Parameters: 
+    Parameters:
         none
 
-    Returns: 
+    Returns:
         render_template('index.html'): the rendered version of the index HTML page, which has the website title,
         a link to the login page, and a link to the create-account page
 
     Changelog:
         Saima 4/19: created homepage in index.html
     """
-    return render_template('index.html') 
+    return render_template('index.html')
 
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     """
     Create address for Login page
-    
-    Returns to: 
+
+    Returns to:
         login.html.
         forms.py for LoginForm class.
         Sign In
-    
+
     Changelog:
         4/19 Ali
-        
+
         Dylan 4/19: Added session username, changed flash message
-    
+
+        Dylan 5/3: session['username'] receiving different data to fix a bug
+
     """
     current_form = LoginForm()
     if current_form.validate_on_submit():
-        session['username'] = current_form.username
-        flash(f'Hello {current_form.username.data}!')
-        return redirect('/')
+        user = User.query.filter_by(
+            username=current_form.username.data).first()
+        if user == None:
+            flash('Incorrect username or password')
+        elif current_form.password.data == user.password_hash:
+            session['username'] = user.username
+            flash(f'Hello {user.username}!')
+            return redirect(url_for('accountHomePage'))
+            exit
+        else:
+            flash('Incorrect username or password')
+        
     return render_template('login.html', title='Sign In', form=current_form)
-
 
 
 @app.route("/create-account", methods=['GET', 'POST'])
@@ -60,11 +73,24 @@ def createaccount():
     Changelog:
         Isaac 04/19: establishment of page excluding database implementation
 
+        Dylan 5/3: Adds user to database
+
     '''
     form = RegisterForm()
     if form.validate_on_submit():
-        flash('You have created an account!')
-        return redirect('/')
+        user = User(username=form.username.data, email=form.email.data,
+                 password_hash=form.password.data)
+        if User.query.filter_by(email=user.email).first() is not None:
+            flash('Email already exists')
+            return redirect(url_for('createaccount'))
+        elif User.query.filter_by(username=user.username).first() is not None:
+            flash('User name already exists')
+            return redirect(url_for('createaccount'))
+        else:
+            session['username'] = user.username
+            db.session.add(user)
+            db.session.commit()
+            return redirect(url_for('accountHomePage'))
     return render_template('create-account.html', form=form)
 
 
@@ -93,6 +119,7 @@ def guestPage(username):
     '''
     return render_template('calendar.html', days = 31, user = username)
 
+  
 @app.route('/<username>/availableTimes')
 def availableTimes(username):
     '''
@@ -103,3 +130,18 @@ def availableTimes(username):
     '''
     flash('Test times')
     return redirect(f'/{username}')
+
+  
+@app.route('/meetings')
+def accountHomePage():
+    '''
+        Displays all meeting date, time, guest, and description
+
+    Changelog:
+        Dylan 5/3: Created initial implementation
+    '''
+    u=User.query.filter_by(username=session['username']).first()
+    e=Event.query.filter_by(creator=u).all()
+    if not e:
+        flash('No meetings on the horizon!')
+    return render_template('meetings-page.html', events=e)

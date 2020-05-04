@@ -1,24 +1,38 @@
 <!DOCTYPE html>
 <html>
     <head>
-       {% if title %}
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" type="text/css" href="base_styles.css"> 
+       {% if title %} 
        <title>Tasksent</title>
        {% else %}
        <title>Tasksent. The better scheduler.</title>
        {% endif %}
     </head>
     <body>
-       <div>
-        Navigate: 
-            <a href="/">Home</a>
-            <!--<a href="/create-account">Create Account</a>-->
-            {% if session['username'] %}
-               <a href="/logout">Logout</a>
-            {% else %}
-               <a href="login">Sign In</a>
-            {% endif %}
-           <a href="/calendar">Guest Page</a>
-     </div>
+
+      <! –– the navigation bar ––>
+      <! –– first, before any CSS, let us list the links needed ––>
+      <! –– login, logout, meetings, settings ––>
+      <! –– for now, the bar will be light blue with black  ––>
+      <div class="navigate">
+         <button type="button" class="btn btn-link">
+            <a href="/login">Login</a>
+         </button>
+         <button type="button" class="btn btn-link">
+            <a href="/logout">Logout</a>
+         </button>
+         <button type="button" class="btn btn-link">
+            <a href="/meetings">Meetings</a>
+         </button>
+         <button type="button" class="btn btn-link">
+            <a href="/settings">Settings</a> 
+         </button>
+         <button type="button" class="btn btn-link"> 
+            <a href="/guest-page">Guest Page</a> 
+         </button> 
+      </div> 
+
        <hr>
 
        {% block content %}{% endblock %}
