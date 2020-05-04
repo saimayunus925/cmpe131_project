@@ -15,21 +15,24 @@
       <! –– login, logout, meetings, settings ––>
       <! –– for now, the bar will be light blue with black  ––>
       <div class="navigate">
+         {% if session['username'] %}
          <button type="button" class="btn btn-link">
-            <a href="/login">Login</a>
-         </button>
-         <button type="button" class="btn btn-link">
-            <a href="/logout">Logout</a>
-         </button>
-         <button type="button" class="btn btn-link">
-            <a href="/meetings">Meetings</a>
+            <a href="/meetings">Home</a>
          </button>
          <button type="button" class="btn btn-link">
             <a href="/settings">Settings</a> 
          </button>
+         <button type="button" class="btn btn-link">
+            <a href="/logout">Logout</a>
+         </button>
+         {% else %}
          <button type="button" class="btn btn-link"> 
-            <a href="/guest-page">Guest Page</a> 
+            <a href="/guest-page">Schedule a Meeting</a> 
          </button> 
+         <button type="button" class="btn btn-link">
+            <a href="/login">Login</a>
+         </button>
+         {% endif %}
       </div> 
 
        <hr>
