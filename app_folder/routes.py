@@ -93,8 +93,6 @@ def createaccount():
             return redirect(url_for('accountHomePage'))
     return render_template('create-account.html', form=form)
 
-
-
 @app.route('/logout')
 def logout():
     '''
