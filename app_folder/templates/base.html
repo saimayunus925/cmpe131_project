@@ -10,29 +10,40 @@
        {% endif %}
     </head>
     <body>
+
       <! –– the navigation bar ––>
       <! –– first, before any CSS, let us list the links needed ––>
       <! –– login, logout, meetings, settings ––>
       <! –– for now, the bar will be light blue with black  ––>
+
       <div class="navigate">
-         {% if session['username'] %}
+
+      {% if session['usename'] %}
+
          <button type="button" class="btn btn-link">
             <a href="/meetings">Home</a>
          </button>
+
          <button type="button" class="btn btn-link">
             <a href="/settings">Settings</a> 
          </button>
+
          <button type="button" class="btn btn-link">
             <a href="/logout">Logout</a>
          </button>
-         {% else %}
+
+      {% else %}
+
          <button type="button" class="btn btn-link"> 
             <a href="/guest-page">Schedule a Meeting</a> 
          </button> 
+
          <button type="button" class="btn btn-link">
             <a href="/login">Login</a>
          </button>
-         {% endif %}
+
+      {% endif %}
+
       </div> 
 
        <hr>

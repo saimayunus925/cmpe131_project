@@ -121,6 +121,12 @@ def settings():
 
 @app.route('/deleteaccount', methods=['GET', 'POST'])
 def delete():
+    '''
+    Deletes user from database
+    
+    Changelog:
+        Dylan 5/3: Database functionality added
+    '''
     form = DeleteForm()
     if form.validate_on_submit():
         user = User.query.filter_by(username=session['username']).first()
@@ -133,6 +139,29 @@ def delete():
     return render_template('delete-account.html', form=form)
 
 
+@app.route('/<username>')
+def guestPage(username):
+    '''
+    Directs to a calendar that has information on the user's availability
+
+    Changelog:
+        Ali, Dylan 5/3: Initial implementation
+    '''
+    return render_template('calendar.html', days = 31, user = username)
+
+  
+@app.route('/<username>/availableTimes')
+def availableTimes(username):
+    '''
+    Redirect to display available times
+
+    Changelog:
+        Ali, Dylan 5/3: Initial implementation
+    '''
+    flash('Test times')
+    return redirect(f'/{username}')
+
+  
 @app.route('/meetings')
 def accountHomePage():
     '''
