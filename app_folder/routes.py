@@ -147,6 +147,7 @@ def guestPage(username):
     Changelog:
         Ali, Dylan 5/3: Initial implementation
     '''
+    u=User.query.filter_by(username=username).first_or_404()
     return render_template('calendar.html', days = 31, user = username)
 
   
