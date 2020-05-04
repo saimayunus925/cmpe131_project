@@ -4,6 +4,10 @@ Functions
 	:members:
 	:undoc-members:
 	
+.. automodule:: app_folder.models
+	:members:
+	:undoc-members:
+	
 .. automodule:: app_folder.forms
 	:members:
 	:undoc-members:
