@@ -122,6 +122,14 @@ def settings():
 @app.route('/deleteaccount', methods=['GET', 'POST'])
 def delete():
     form = DeleteForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(username=session['username']).first()
+        if form.username.data == user.username and form.password.data == user.password_hash:
+            session.pop('username', None)
+            db.session.delete(user)
+            db.session.commit()
+            flash("Account successfully deleted.")
+            return redirect(url_for('index'))
     return render_template('delete-account.html', form=form)
 
 

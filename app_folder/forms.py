@@ -41,7 +41,7 @@ class SettingsForm(FlaskForm):
 
 
 class DeleteForm(FlaskForm):
-    email = StringField('Email', validators=[DataRequired(), Email()])
+    #email = StringField('Email', validators=[DataRequired(), Email()])
     username = StringField('Confirm Username', validators=[DataRequired()])
     password = PasswordField('Confirm Password', validators=[DataRequired()])
     submit = SubmitField('Delete Account')
