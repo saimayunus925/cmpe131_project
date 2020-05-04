@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <dl>
+        {% for event in events %}
+        
+            <dt>{{event.datetime}}</dt>
+            <dd>{{event.guest_name}}</dd>
+            <dd>{{event.description}}</dd>
+        
+        {% endfor %}
+    </dl>
+{% endblock %}
