@@ -82,6 +82,8 @@ def createaccount():
             session['username'] = user.username
             db.session.add(user)
             db.session.commit()
+            flash("Account created.")
+            flash(f'Hello {user.username}!')
             return redirect(url_for('accountHomePage'))
     return render_template('create-account.html', form=form)
 
