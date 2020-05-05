@@ -2,7 +2,21 @@
 <html>
     <head>
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-      <link rel="stylesheet" type="text/css" href="base_styles.css"> 
+      <style>
+        .navigate {
+          background-color: #b5f5dc; 
+        } 
+        a:link {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 18px;
+            color: blue;
+        } 
+        a:hover {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 18px;
+            color: black; 
+        } 
+      </style> 
        {% if title %} 
        <title>Tasksent</title>
        {% else %}
@@ -10,44 +24,27 @@
        {% endif %}
     </head>
     <body>
-
-      <! –– the navigation bar ––>
-      <! –– first, before any CSS, let us list the links needed ––>
-      <! –– login, logout, meetings, settings ––>
-      <! –– for now, the bar will be light blue with black  ––>
-
-      <div class="navigate">
-
-      {% if session['username'] %}
-
-         <button type="button" class="btn btn-link">
-            <a href="/meetings">Home</a>
-         </button>
-
-         <button type="button" class="btn btn-link">
-            <a href="/settings">Settings</a> 
-         </button>
-
-         <button type="button" class="btn btn-link">
-            <a href="/logout">Logout</a>
-         </button>
-
-      {% else %}
-
-         <!--
-         <button type="button" class="btn btn-link"> 
-            <a href="/guest-page">Schedule a Meeting</a> 
-         </button> 
-         -->
-         
-         <button type="button" class="btn btn-link">
-            <a href="/login">Login</a>
-         </button>
-
-      {% endif %}
-
-      </div> 
-
+       <div class="navigate"> 
+          <button class="btn btn-link"> 
+            <a href="/">Home</a>   
+          <button class="btn btn-link"> 
+            <a href="/create-account">Create Account</a> 
+          </button>
+          <button class="btn btn-link">
+            {% if session['username'] %}
+               <a href="/logout">Logout</a>
+            {% else %}
+               <a href="login">Login</a> 
+            {% endif %}
+          </button> 
+          <button class="btn btn-link">
+            <a href="/meetings">Meetings</a> 
+          </button> 
+          <button class="btn btn-link">
+            <a href="/settings">Settings</a>  
+          </button> 
+     </div> 
+       <hr> 
        <hr>
 
        {% block content %}{% endblock %}

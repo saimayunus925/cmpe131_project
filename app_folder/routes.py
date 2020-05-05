@@ -19,14 +19,11 @@ import datetime
 def index():
     """
     Returns the rendered 'index.html' template.
-
     Parameters:
         none
-
     Returns:
         render_template('index.html'): the rendered version of the index HTML page, which has the website title,
         a link to the login page, and a link to the create-account page
-
     Changelog:
         Saima 4/19: created homepage in index.html
     """
@@ -37,19 +34,14 @@ def index():
 def login():
     """
     Create address for Login page
-
     Returns to:
         login.html.
         forms.py for LoginForm class.
         Sign In
-
     Changelog:
         4/19 Ali
-
         Dylan 4/19: Added session username, changed flash message
-
         Dylan 5/3: session['username'] receiving different data to fix a bug
-
     """
     current_form = LoginForm()
     if current_form.validate_on_submit():
@@ -72,12 +64,9 @@ def login():
 def createaccount():
     '''
     Create account page
-
     Changelog:
         Isaac 04/19: establishment of page excluding database implementation
-
         Dylan 5/3: Adds user to database
-
     '''
     form = RegisterForm()
     if form.validate_on_submit():
@@ -101,10 +90,8 @@ def createaccount():
 def logout():
     '''
     Pops the session username
-
     Changelog:
         Dylan 4/19: Created initial implementation
-
     '''
     session.pop('username', None)
     flash('You have been logged out.')
@@ -143,7 +130,6 @@ def delete():
 def guestPage(username):
     '''
     Directs to a calendar that has information on the user's availability
-
     Changelog:
         Ali, Dylan 5/3: Initial implementation
     '''
@@ -155,7 +141,6 @@ def guestPage(username):
 def availableTimes(username):
     '''
     Redirect to display available times
-
     Changelog:
         Ali, Dylan 5/3: Initial implementation
     '''
@@ -167,7 +152,6 @@ def availableTimes(username):
 def accountHomePage():
     '''
         Displays all meeting date, time, guest, and description
-
     Changelog:
         Dylan 5/3: Created initial implementation
     '''
@@ -175,4 +159,4 @@ def accountHomePage():
     e=Event.query.filter_by(creator=u).all()
     if not e:
         flash('No meetings on the horizon!')
-    return render_template('meetings-page.html', events=e)
+    return render_template('meetings-page.html', events=e) 
