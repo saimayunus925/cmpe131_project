@@ -13,6 +13,7 @@ from app_folder.models import User, Event
 from app_folder.__init__ import db
 import datetime
 
+
 # different URL the app will implement
 @app.route("/")
 # called splash function
@@ -26,6 +27,7 @@ def splash():
     Changelog:
         Isaac 5/10: created splash page in splash_page.html
     """
+
     return render_template('splash_page.html')
 
 
