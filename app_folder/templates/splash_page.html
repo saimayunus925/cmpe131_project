@@ -1,8 +1,12 @@
-{% extends "base.html" %}
- 
+{% extends 'base.html' %}
+
 {% block content %}
- 
-    <h1>A Little About Us...</h1>
+    <link rel="stylesheet" href="/static/picture.css"/>
+
+    <h1>Tasksent</h1>
+    <h4>A Little About Us... (spash page)</h4>
+    <div>
+    </div>
     <div>
         <p>
             Tasksent is a scheuduling site that allows account bearing users to establish meeting times and durations. Guest users may access the site and view these meetings or avalibility timeframes.
@@ -18,9 +22,32 @@
             Users also have the option of sending email notificaions to guests who have selected a specific avalibility time.
         </p>
     </div>
+    <div>
+        <p>To check out our website, <a href = "/home">click here</a>, or select "Home" from the navigation bar. Contine below to read about the site's functions.</p>
+    </div>
 
-	<img src="/static/pics/scr.png" alt="picture goes here">
-    
-    <p>To check out our website, <a href = "/home">click here</a>, or select "Home" from the navigation bar</p>
+
+
+    <h1>Site Functions:</h1>
+    <div>
+        <h4>Create Account page:</h4>
+        <p>
+            Takes inputs "Email", "Username", and "Password".<br>
+            This page can be accessed from either the navigation bar, via a redirection<br>
+            from the login page, or by appending "/create-account" to the site link.<br>
+            <div></div>
+            <img src="/static/pics/create_account.png" alt="!!!create account pic goes here!!!" class="center">
+        </p>
+    </div>
+    <div>
+        <h4>Login Page:</h4>
+        <p>
+            Takes inputs "Username", and "Password" and has a checkable option "remember_me" <br>
+            This page can be accessed from either the navigation bar,<br>
+            or by appending "/login" to the site link.<br>
+            <div></div>
+            <img src="/static/pics/login.png" alt="!!!login pic goes here!!!" class="center">
+        </p>
+    </div>
 
 {% endblock %}
