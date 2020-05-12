@@ -1,1 +1,1 @@
-web: gunicorn app_folder.init: app
+web: gunicorn init: app
