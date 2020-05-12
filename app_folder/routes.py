@@ -173,6 +173,7 @@ def guestPage(username):
     Directs to a calendar that has information on the user's availability
     Changelog:
         Ali, Dylan 5/3: Initial implementation
+        Dylan 5/11: Properly gains date information
     '''
     user = User.query.filter_by(username=username).first_or_404()
     form = ScheduleMeetingForm()
@@ -188,6 +189,7 @@ def availableTimes(username, date):
     Redirect to display available times
     Changelog:
         Ali, Dylan 5/3: Initial implementation
+        Dylan 5/11: Properly displays times
     '''
     #flash('Test times')
     form = MeetingDescriptionForm()
@@ -215,6 +217,7 @@ def accountHomePage():
         Displays all meeting date, time, guest, and description
     Changelog:
         Dylan 5/3: Created initial implementation
+        Dylan 5/11: Properly queries databases and shows only future events.
     '''
     u=User.query.filter_by(username=session['username']).first()
     events=Event.query.filter_by(creator=u).all()
@@ -223,6 +226,6 @@ def accountHomePage():
             db.session.remove(e)
             events.remove(e)
             db.session.commit()
-    if events is None:
+    if not events:
         flash('No meetings on the horizon!')
     return render_template('meetings-page.html', events=events)

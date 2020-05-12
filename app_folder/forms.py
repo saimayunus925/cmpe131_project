@@ -60,7 +60,7 @@ class DeleteForm(FlaskForm):
 
 class ScheduleMeetingForm(FlaskForm):
     '''
-
+    Calendar selecter for guest
 
     Changelog:
         5/10 Dylan: Initial implementation
@@ -70,6 +70,7 @@ class ScheduleMeetingForm(FlaskForm):
 
 class MeetingDescriptionForm(FlaskForm):
     '''
+    Inputs when a guest schedules a meeting
 
 
     Changelog:
