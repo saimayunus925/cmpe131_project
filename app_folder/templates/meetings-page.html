@@ -4,9 +4,9 @@
     <dl>
         {% for event in events %}
         
-            <dt>{{event.datetime}}</dt>
-            <dd>{{event.guest_name}}</dd>
-            <dd>{{event.description}}</dd>
+            <dt>{{event.datetime.strftime('%m/%d at %I:%M %p')}}</dt>
+            <dd>Guest: {{event.guest_name}}</dd>
+            <dd>Description: {{event.description}}</dd>
         
         {% endfor %}
     </dl>
