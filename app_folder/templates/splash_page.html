@@ -23,12 +23,22 @@
         </p>
     </div>
     <div>
-        <p>To check out our website, <a href = "/home">click here</a>, or select "Home" from the navigation bar. Contine below to read about the site's functions.</p>
+        <p>
+            To check out our website, <a href = "/home">click here</a>, or select "Home" from the navigation bar. Contine below to read about the site's functions.
+        </p>
     </div>
 
 
-
     <h1>Site Functions:</h1>
+    <div>
+        <h4>Navagation Bar:</h4>
+        <p>
+            The navagation bar can be accessed from the top of the site, below the browser search bar.<br>
+            This bar allows visitors to swap between the "Home", "About", "Login", and "Create Account" pages.<br>
+            Account bearing users also have the additional links to "Logout", "Meetings", and "Settings".<br>
+            <div></div>
+        </p>
+    </div>
     <div>
         <h4>Create Account page:</h4>
         <p>
@@ -36,18 +46,88 @@
             This page can be accessed from either the navigation bar, via a redirection<br>
             from the login page, or by appending "/create-account" to the site link.<br>
             <div></div>
-            <img src="/static/pics/create_account.png" alt="!!!create account pic goes here!!!" class="center">
+            <img src="/static/pics/create-account.png" alt="!!!create account pic goes here!!!" class="center">
         </p>
     </div>
     <div>
-        <h4>Login Page:</h4>
+        <h4>Delete Account page:</h4>
         <p>
-            Takes inputs "Username", and "Password" and has a checkable option "remember_me" <br>
-            This page can be accessed from either the navigation bar,<br>
-            or by appending "/login" to the site link.<br>
+            Takes varification inputs "Username", and "Password".<br>
+            This page can only be accessed from the settings page via the navigation bar<br>
+            when a user is logged in. Alternatively, a user can append "/delete-account" to the site link.<br>
             <div></div>
-            <img src="/static/pics/login.png" alt="!!!login pic goes here!!!" class="center">
+            <img src="/static/pics/delete-account.png" alt="!!!delete account pic goes here!!!" class="center">
         </p>
     </div>
+    <div>
+        <h4>Login Page and Logout Functionality:</h4>
+        <p>
+            <div>
+                Login: Takes inputs "Username", and "Password" and has a checkable option "remember_me". <br>
+                Login can be accessed from either the navigation bar, or by appending "/login" to the site link.
 
+            </div>
+        </p>
+        <p>
+            <div>
+                Logout: Allows a user to exit account on from the site.<br>
+                Logout can be accessed via the navigation bar,<br>
+                or a force logout action can be committed by appending "/logout" to the site link.
+            </div>
+        </p>    
+            <img src="/static/pics/sign-in.png" alt="!!!login pic goes here!!!" class="center">
+        </p>
+    </div>
+    <div>
+        <h4>Settings page:</h4>
+        <p>
+            Prompts user to: "change availability", "select meeting length, and "send email confirmation".<br>
+            Also allows users to redirect to delete account page.<br>
+            This page can ONLY be accessed when a user is logged in and can be seen from either the navigation bar,<br>
+            or by appending "/settings" to the site link.<br>
+            <div></div>
+            <img src="/static/pics/setting.png" alt="!!!settings pic goes here!!!" class="center">
+        </p>
+    </div>
+    <div>
+        <h4>Meetings page:</h4>
+        <p>
+            Display's a logged-in user's current meetings.<br>
+            This page can ONLY be accessed when a user is logged in and can be seen from either the navigation bar,<br>
+            or by appending "/meetings" to the site link.<br>
+            <div></div>
+            <p>
+                This image shows no meetings made by any guests
+                and displays text "settings changed" when a user has outlined their time and duration availability.
+            </p>
+            <img src="/static/pics/no-meetings-settings-changed.png" alt="!!!meetings01 pic goes here!!!" class="center"> 
+        </p>
+        <p>
+
+            <div></div>
+            <p>
+                This image shows meetings made by some guests.<br>
+                Each meeting is preceded by the date and start time. Followed by the guest user name, then the description of the meeting.
+            </p>
+            <img src="/static/pics/meeting-page-with-guests.png" alt="!!!meetings01 pic goes here!!!" class="center">
+        </p>
+    </div>
+    <div>
+        <h4>Guest Scheduling page:</h4>
+        <p>
+            This page allows guest users to interact with the site and schedule meetings with registered users.<br>
+            This page can ONLY be accessed via appending "/user" with "user" being the specific username of a registered individual.
+        </p>
+        <p>
+            This picture shows the site prompting a guest user to pick a day from the calender to be a meeting day.<br>
+            <div></div>
+            <img src="/static/pics/GUEST-pick-day.JPG" alt="!!!settings pic goes here!!!" class="center">
+        </p>
+
+        <p>
+            This picture shows the site prompting a guest user to pick a time frame (dictated by the account holder), enter their name, and enter a meeting description.<br>
+            <div></div>
+            <img src="/static/pics/GUEST-schedule.png" alt="!!!settings pic goes here!!!" class="center">
+        </p>
+    </div>
 {% endblock %}
