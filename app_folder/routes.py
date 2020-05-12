@@ -179,7 +179,7 @@ def availableTimes(username, date):
     form.time.choices = funcs.generateAvailability(user, strp_date)
     if request.method == 'POST':
         e = Event(user_id=user.id,
-            datetime=datetime.datetime.combine(strp_date, datetime.datetime.strptime(form.time.data, '%I:%M:%S').time()),
+            datetime=datetime.datetime.combine(strp_date, datetime.datetime.strptime(form.time.data, '%H:%M:%S').time()),
             guest_name=form.name.data)
         if form.description.data is not None:
             e.description = form.description.data
