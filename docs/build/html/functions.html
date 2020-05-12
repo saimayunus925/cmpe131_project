@@ -40,30 +40,33 @@
 <div><p>Displays all meeting date, time, guest, and description</p>
 </div></blockquote>
 <dl class="simple">
-<dt>Changelog:</dt><dd><p>Dylan 5/3: Created initial implementation</p>
+<dt>Changelog:</dt><dd><p>Dylan 5/3: Created initial implementation
+Dylan 5/11: Properly queries databases and shows only future events.</p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="py function">
 <dt id="app_folder.routes.availableTimes">
-<code class="sig-prename descclassname">app_folder.routes.</code><code class="sig-name descname">availableTimes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.routes.availableTimes" title="Permalink to this definition">¶</a></dt>
-<dd><p>Redirect to display available times</p>
-<dl class="simple">
-<dt>Changelog:</dt><dd><p>Ali, Dylan 5/3: Initial implementation</p>
-</dd>
-</dl>
+<code class="sig-prename descclassname">app_folder.routes.</code><code class="sig-name descname">availableTimes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em>, <em class="sig-param"><span class="n">date</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.routes.availableTimes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Redirect to display available times
+Changelog:</p>
+<blockquote>
+<div><p>Ali, Dylan 5/3: Initial implementation
+Dylan 5/11: Properly displays times</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py function">
 <dt id="app_folder.routes.createaccount">
 <code class="sig-prename descclassname">app_folder.routes.</code><code class="sig-name descname">createaccount</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.routes.createaccount" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create account page</p>
-<dl>
-<dt>Changelog:</dt><dd><p>Isaac 04/19: establishment of page excluding database implementation</p>
-<p>Dylan 5/3: Adds user to database</p>
-</dd>
-</dl>
+<dd><p>Create account page
+Changelog:</p>
+<blockquote>
+<div><p>Isaac 04/19: establishment of page excluding database implementation
+Dylan 5/3: Adds user to database
+Dylan 5/10: Password encryption</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py function">
@@ -71,7 +74,8 @@
 <code class="sig-prename descclassname">app_folder.routes.</code><code class="sig-name descname">delete</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.routes.delete" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deletes user from database</p>
 <dl class="simple">
-<dt>Changelog:</dt><dd><p>Dylan 5/3: Database functionality added</p>
+<dt>Changelog:</dt><dd><p>Dylan 5/3: Database functionality added
+Dylan 5/10: Password encryption</p>
 </dd>
 </dl>
 </dd></dl>
@@ -79,20 +83,23 @@
 <dl class="py function">
 <dt id="app_folder.routes.guestPage">
 <code class="sig-prename descclassname">app_folder.routes.</code><code class="sig-name descname">guestPage</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">username</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.routes.guestPage" title="Permalink to this definition">¶</a></dt>
-<dd><p>Directs to a calendar that has information on the user’s availability</p>
-<dl class="simple">
-<dt>Changelog:</dt><dd><p>Ali, Dylan 5/3: Initial implementation</p>
-</dd>
-</dl>
+<dd><p>Directs to a calendar that has information on the user’s availability
+Changelog:</p>
+<blockquote>
+<div><p>Ali, Dylan 5/3: Initial implementation
+Dylan 5/11: Properly gains date information</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py function">
 <dt id="app_folder.routes.index">
 <code class="sig-prename descclassname">app_folder.routes.</code><code class="sig-name descname">index</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.routes.index" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns the rendered ‘index.html’ template.</p>
+<dd><p>Returns the rendered ‘index.html’ template.
+Parameters:</p>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
 <dl class="simple">
-<dt>Parameters:</dt><dd><p>none</p>
-</dd>
 <dt>Returns:</dt><dd><p>render_template(‘index.html’): the rendered version of the index HTML page, which has the website title,
 a link to the login page, and a link to the create-account page</p>
 </dd>
@@ -104,15 +111,18 @@ a link to the login page, and a link to the create-account page</p>
 <dl class="py function">
 <dt id="app_folder.routes.login">
 <code class="sig-prename descclassname">app_folder.routes.</code><code class="sig-name descname">login</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.routes.login" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create address for Login page</p>
-<dl>
-<dt>Returns to:</dt><dd><p>login.html.
+<dd><p>Create address for Login page
+Returns to:</p>
+<blockquote>
+<div><p>login.html.
 forms.py for LoginForm class.
 Sign In</p>
-</dd>
-<dt>Changelog:</dt><dd><p>4/19 Ali</p>
-<p>Dylan 4/19: Added session username, changed flash message</p>
-<p>Dylan 5/3: session[‘username’] receiving different data to fix a bug</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Changelog:</dt><dd><p>4/19 Ali
+Dylan 4/19: Added session username, changed flash message
+Dylan 5/3: session[‘username’] receiving different data to fix a bug
+Dylan 5/10: Password encryption</p>
 </dd>
 </dl>
 </dd></dl>
@@ -120,17 +130,38 @@ Sign In</p>
 <dl class="py function">
 <dt id="app_folder.routes.logout">
 <code class="sig-prename descclassname">app_folder.routes.</code><code class="sig-name descname">logout</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.routes.logout" title="Permalink to this definition">¶</a></dt>
-<dd><p>Pops the session username</p>
-<dl class="simple">
-<dt>Changelog:</dt><dd><p>Dylan 4/19: Created initial implementation</p>
-</dd>
-</dl>
+<dd><p>Pops the session username
+Changelog:</p>
+<blockquote>
+<div><p>Dylan 4/19: Created initial implementation</p>
+</div></blockquote>
 </dd></dl>
 
 <dl class="py function">
 <dt id="app_folder.routes.settings">
 <code class="sig-prename descclassname">app_folder.routes.</code><code class="sig-name descname">settings</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.routes.settings" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Deletes user from database</p>
+<dl class="simple">
+<dt>Changelog:</dt><dd><p>Dylan 5/11: Now actually changes user settings</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app_folder.routes.splash">
+<code class="sig-prename descclassname">app_folder.routes.</code><code class="sig-name descname">splash</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.routes.splash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the rendered ‘splash_page.html’ template.
+Parameters:</p>
+<blockquote>
+<div><p>none</p>
+</div></blockquote>
+<dl class="simple">
+<dt>Returns:</dt><dd><p>the splash page ot the website, contains details about what the site does as well as pictures outlining each feature</p>
+</dd>
+<dt>Changelog:</dt><dd><p>Isaac 5/10: created splash page in splash_page.html</p>
+</dd>
+</dl>
+</dd></dl>
 
 <span class="target" id="module-app_folder.models"></span><dl class="py class">
 <dt id="app_folder.models.Event">
@@ -180,12 +211,18 @@ Sign In</p>
 <dt>Returns:</dt><dd><p>print variable in string</p>
 </dd>
 <dt>Changelog:</dt><dd><p>4/19 Ali</p>
-<p>5/3 Dylan: Added events relationship</p>
+<p>5/3 Dylan: Added events relationship
+5/10 Dylan: Added salt</p>
 </dd>
 </dl>
 <dl class="py attribute">
 <dt id="app_folder.models.User.email">
 <code class="sig-name descname">email</code><a class="headerlink" href="#app_folder.models.User.email" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.models.User.end_time">
+<code class="sig-name descname">end_time</code><a class="headerlink" href="#app_folder.models.User.end_time" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -199,8 +236,23 @@ Sign In</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
+<dt id="app_folder.models.User.meeting_length">
+<code class="sig-name descname">meeting_length</code><a class="headerlink" href="#app_folder.models.User.meeting_length" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
 <dt id="app_folder.models.User.password_hash">
 <code class="sig-name descname">password_hash</code><a class="headerlink" href="#app_folder.models.User.password_hash" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.models.User.salt">
+<code class="sig-name descname">salt</code><a class="headerlink" href="#app_folder.models.User.salt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.models.User.start_time">
+<code class="sig-name descname">start_time</code><a class="headerlink" href="#app_folder.models.User.start_time" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -265,6 +317,36 @@ Summary for things we need for inside Login page</p>
 </dd></dl>
 
 <dl class="py class">
+<dt id="app_folder.forms.MeetingDescriptionForm">
+<em class="property">class </em><code class="sig-prename descclassname">app_folder.forms.</code><code class="sig-name descname">MeetingDescriptionForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.forms.MeetingDescriptionForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Inputs when a guest schedules a meeting</p>
+<dl class="simple">
+<dt>Changelog:</dt><dd><p>5/11 Dylan: Initial implementation</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="app_folder.forms.MeetingDescriptionForm.description">
+<code class="sig-name descname">description</code><em class="property"> = &lt;UnboundField(TextAreaField, ('Meeting Description (optional)',), {})&gt;</em><a class="headerlink" href="#app_folder.forms.MeetingDescriptionForm.description" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.forms.MeetingDescriptionForm.name">
+<code class="sig-name descname">name</code><em class="property"> = &lt;UnboundField(StringField, ('Your name',), {'validators': [&lt;wtforms.validators.DataRequired object&gt;]})&gt;</em><a class="headerlink" href="#app_folder.forms.MeetingDescriptionForm.name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.forms.MeetingDescriptionForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Schedule',), {})&gt;</em><a class="headerlink" href="#app_folder.forms.MeetingDescriptionForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.forms.MeetingDescriptionForm.time">
+<code class="sig-name descname">time</code><em class="property"> = &lt;UnboundField(SelectField, ('Time',), {'choices': []})&gt;</em><a class="headerlink" href="#app_folder.forms.MeetingDescriptionForm.time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt id="app_folder.forms.RegisterForm">
 <em class="property">class </em><code class="sig-prename descclassname">app_folder.forms.</code><code class="sig-name descname">RegisterForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.forms.RegisterForm" title="Permalink to this definition">¶</a></dt>
 <dd><p>Creating create account fields</p>
@@ -295,11 +377,36 @@ Summary for things we need for inside Login page</p>
 </dd></dl>
 
 <dl class="py class">
+<dt id="app_folder.forms.ScheduleMeetingForm">
+<em class="property">class </em><code class="sig-prename descclassname">app_folder.forms.</code><code class="sig-name descname">ScheduleMeetingForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.forms.ScheduleMeetingForm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calendar selecter for guest</p>
+<dl class="simple">
+<dt>Changelog:</dt><dd><p>5/10 Dylan: Initial implementation</p>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt id="app_folder.forms.ScheduleMeetingForm.date">
+<code class="sig-name descname">date</code><em class="property"> = &lt;UnboundField(DateField, ('Meeting date',), {'validators': [&lt;wtforms.validators.Required object&gt;], 'default': ''})&gt;</em><a class="headerlink" href="#app_folder.forms.ScheduleMeetingForm.date" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.forms.ScheduleMeetingForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Check times',), {})&gt;</em><a class="headerlink" href="#app_folder.forms.ScheduleMeetingForm.submit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
 <dt id="app_folder.forms.SettingsForm">
 <em class="property">class </em><code class="sig-prename descclassname">app_folder.forms.</code><code class="sig-name descname">SettingsForm</code><span class="sig-paren">(</span><em class="sig-param">formdata=&lt;object object&gt;</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.forms.SettingsForm" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="py attribute">
-<dt id="app_folder.forms.SettingsForm.confirm">
-<code class="sig-name descname">confirm</code><em class="property"> = &lt;UnboundField(SubmitField, ('Submit',), {})&gt;</em><a class="headerlink" href="#app_folder.forms.SettingsForm.confirm" title="Permalink to this definition">¶</a></dt>
+<dt id="app_folder.forms.SettingsForm.delete">
+<code class="sig-name descname">delete</code><em class="property"> = &lt;UnboundField(SubmitField, ('Delete Account',), {})&gt;</em><a class="headerlink" href="#app_folder.forms.SettingsForm.delete" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.forms.SettingsForm.dt">
+<code class="sig-name descname">dt</code><em class="property"> = datetime.time(22, 0)</em><a class="headerlink" href="#app_folder.forms.SettingsForm.dt" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
@@ -308,20 +415,62 @@ Summary for things we need for inside Login page</p>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="app_folder.forms.SettingsForm.submit">
-<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Delete Account',), {})&gt;</em><a class="headerlink" href="#app_folder.forms.SettingsForm.submit" title="Permalink to this definition">¶</a></dt>
+<dt id="app_folder.forms.SettingsForm.end_time_of_day">
+<code class="sig-name descname">end_time_of_day</code><em class="property"> = &lt;UnboundField(SelectField, ('End Time:  ',), {'choices': [(9, '09:00 AM'), (10, '10:00 AM'), (11, '11:00 AM'), (12, '12:00 PM'), (13, '01:00 PM'), (14, '02:00 PM'), (15, '03:00 PM'), (16, '04:00 PM'), (17, '05:00 PM'), (18, '06:00 PM'), (19, '07:00 PM'), (20, '08:00 PM'), (21, '09:00 PM'), (22, '10:00 PM')]})&gt;</em><a class="headerlink" href="#app_folder.forms.SettingsForm.end_time_of_day" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
-<dt id="app_folder.forms.SettingsForm.timeofday">
-<code class="sig-name descname">timeofday</code><em class="property"> = &lt;UnboundField(SelectField, ('Time of Meeting',), {'choices': [('1', '9:00am'), ('2', '10:00am'), ('3', '11:00am'), ('4', '12:00pm'), ('5', '1:00pm'), ('6', '2:00pm'), ('7', '3:00pm'), ('8', '4:00pm'), ('9', '5:00pm'), ('10', '6:00pm'), ('11', '7:00pm'), ('12', '8:00pm'), ('13', '9:00pm'), ('14', '10:00pm')]})&gt;</em><a class="headerlink" href="#app_folder.forms.SettingsForm.timeofday" title="Permalink to this definition">¶</a></dt>
+<dt id="app_folder.forms.SettingsForm.start_time_of_day">
+<code class="sig-name descname">start_time_of_day</code><em class="property"> = &lt;UnboundField(SelectField, ('Start Time:  ',), {'choices': [(9, '09:00 AM'), (10, '10:00 AM'), (11, '11:00 AM'), (12, '12:00 PM'), (13, '01:00 PM'), (14, '02:00 PM'), (15, '03:00 PM'), (16, '04:00 PM'), (17, '05:00 PM'), (18, '06:00 PM'), (19, '07:00 PM'), (20, '08:00 PM'), (21, '09:00 PM'), (22, '10:00 PM')]})&gt;</em><a class="headerlink" href="#app_folder.forms.SettingsForm.start_time_of_day" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.forms.SettingsForm.submit">
+<code class="sig-name descname">submit</code><em class="property"> = &lt;UnboundField(SubmitField, ('Submit',), {})&gt;</em><a class="headerlink" href="#app_folder.forms.SettingsForm.submit" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="py attribute">
 <dt id="app_folder.forms.SettingsForm.timeops">
-<code class="sig-name descname">timeops</code><em class="property"> = &lt;UnboundField(SelectField, ('Length of Meeting',), {'choices': [('fifteenmins', '15 minutes'), ('thirtymins', '30 minutes'), ('sixtyymins', '60 minutes')]})&gt;</em><a class="headerlink" href="#app_folder.forms.SettingsForm.timeops" title="Permalink to this definition">¶</a></dt>
+<code class="sig-name descname">timeops</code><em class="property"> = &lt;UnboundField(SelectField, ('Length of Meeting',), {'choices': [(15, '15 minutes'), (30, '30 minutes'), (60, '60 minutes')]})&gt;</em><a class="headerlink" href="#app_folder.forms.SettingsForm.timeops" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt id="app_folder.forms.SettingsForm.times">
+<code class="sig-name descname">times</code><em class="property"> = [(9, '09:00 AM'), (10, '10:00 AM'), (11, '11:00 AM'), (12, '12:00 PM'), (13, '01:00 PM'), (14, '02:00 PM'), (15, '03:00 PM'), (16, '04:00 PM'), (17, '05:00 PM'), (18, '06:00 PM'), (19, '07:00 PM'), (20, '08:00 PM'), (21, '09:00 PM'), (22, '10:00 PM')]</em><a class="headerlink" href="#app_folder.forms.SettingsForm.times" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt id="app_folder.forms.SettingsForm.x">
+<code class="sig-name descname">x</code><em class="property"> = 22</em><a class="headerlink" href="#app_folder.forms.SettingsForm.x" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<span class="target" id="module-app_folder.funcs"></span><dl class="py function">
+<dt id="app_folder.funcs.checkPswd">
+<code class="sig-prename descclassname">app_folder.funcs.</code><code class="sig-name descname">checkPswd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span></em>, <em class="sig-param"><span class="n">pswd</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.funcs.checkPswd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Changelog:</dt><dd><p>5/10 Dylan: Initial implementation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app_folder.funcs.createNewPswd">
+<code class="sig-prename descclassname">app_folder.funcs.</code><code class="sig-name descname">createNewPswd</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span></em>, <em class="sig-param"><span class="n">pswd</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.funcs.createNewPswd" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Changelog:</dt><dd><p>5/10 Dylan: Initial implementation</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="app_folder.funcs.generateAvailability">
+<code class="sig-prename descclassname">app_folder.funcs.</code><code class="sig-name descname">generateAvailability</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">user</span></em>, <em class="sig-param"><span class="n">date</span></em><span class="sig-paren">)</span><a class="headerlink" href="#app_folder.funcs.generateAvailability" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="simple">
+<dt>Changelog:</dt><dd><p>5/10 Dylan: Initial implementation</p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>

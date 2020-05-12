@@ -11,3 +11,7 @@ Functions
 .. automodule:: app_folder.forms
 	:members:
 	:undoc-members:
+
+.. automodule:: app_folder.funcs
+	:members:
+	:undoc-members:
