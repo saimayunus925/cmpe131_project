@@ -4,21 +4,36 @@
 <head>
    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-   <style>
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}"> 
+   <style> 
       .navigate {
-         background-color: #b5f5dc;
+         background-color: #16751e; 
       }
 
       a:link {
          font-family: Verdana, Geneva, Tahoma, sans-serif;
-         font-size: 18px;
-         color: blue;
-      }
+         font-size: 20px;
+         color: white; 
+         font-weight: 900;
+      } 
 
       a:hover {
          font-family: Verdana, Geneva, Tahoma, sans-serif;
-         font-size: 18px;
+         font-size: 20px;
          color: black;
+         font-weight: 900; 
+      } 
+
+      body {
+         background-color: #b5f5dc;
+      }
+
+      input[type=text] {
+         background-color: #c2f2ea;
+      }   
+
+      input[type=password] {
+         background-color: #c2f2ea; 
       }
    </style>
    {% if title %}
@@ -32,7 +47,11 @@
    <div class="navigate">
 
       <button class="btn btn-link">
-         <a href="/">Home</a>
+         <a href="/home">Home</a>
+      </button>
+
+      <button class="btn btn-link">
+         <a href="/">About Us</a>
       </button>
 
       {% if session['username'] %}

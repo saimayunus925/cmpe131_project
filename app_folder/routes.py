@@ -16,8 +16,25 @@ from app_folder import db
 import datetime
 from app_folder import funcs
 
+
 # different URL the app will implement
 @app.route("/")
+# called splash function
+def splash():
+    """
+    Returns the rendered 'splash_page.html' template.
+    Parameters:
+        none
+    Returns:
+        the splash page ot the website, contains details about what the site does as well as pictures outlining each feature
+    Changelog:
+        Isaac 5/10: created splash page in splash_page.html
+    """
+
+    return render_template('splash_page.html')
+
+
+@app.route("/home")
 # called view function
 def index():
     """
